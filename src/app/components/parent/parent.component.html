@@ -3,5 +3,9 @@
 
     <p class="is-size-6 subtitle">{{ message }}</p>
 
-    <app-child [sentence]="sentence"></app-child>
+    <div *ngIf="evtMessage">
+        <p class="is-size-6 subtitle">{{ evtMessage }}</p>
+    </div>
+
+    <app-child [sentence]="sentence" (messageEvent)="receiveMessage($event)"></app-child>
 </div>

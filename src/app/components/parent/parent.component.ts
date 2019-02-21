@@ -15,6 +15,7 @@ export class ParentComponent implements AfterViewInit {
   
   // message from the child //
   message: any;
+  evtMessage: any;
 
   // Save Child Component to   //
   @ViewChild(ChildComponent) child;
@@ -26,6 +27,10 @@ export class ParentComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.message = this.child.message;
+  }
+
+  receiveMessage($event){
+    this.evtMessage = $event;
   }
 
 }
