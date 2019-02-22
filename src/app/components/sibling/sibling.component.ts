@@ -9,11 +9,20 @@ import { DataService } from 'src/app/data.service';
 export class SiblingComponent implements OnInit {
 
   sharedMessage: any;
+  editMessage: any;
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
     this.data.sharedMessage.subscribe(sharedData => this.sharedMessage = sharedData)
+  }
+
+  newMessage() {
+    this.data.changeMessage('this is the new messageSS!');
+  }
+
+  changeMsg(){
+    this.data.changeMessage(this.editMessage);
   }
 
 }
