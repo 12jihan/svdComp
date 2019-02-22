@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ChildComponent } from '../child/child.component';
-
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-parent',
@@ -16,14 +16,16 @@ export class ParentComponent implements AfterViewInit {
   // message from the child //
   message: any;
   evtMessage: any;
+  sharedMessage: any;
 
   // Save Child Component to   //
   @ViewChild(ChildComponent) child;
 
-  constructor() { }
+  constructor(private data: DataService) { }
 
-  // ngOnInit() {
-  // }
+  ngOnInit() {
+    this.data.sharedMessage.subscribe(sharedData => this.sharedMessage = sharedData )
+  }
 
   ngAfterViewInit() {
     this.message = this.child.message;

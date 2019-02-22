@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { DataService } from 'src/app/data.service';
+
 
 @Component({
   selector: 'app-child',
@@ -14,17 +16,17 @@ export class ChildComponent implements OnInit {
   
   // message to the parent //
   message: any = "( This is the Child's Data )";
-
   evtMessage: any = "( This is an Event From the Child )"
+  sharedMessage: any;
 
-
-  constructor() { }
+  constructor(private data: DataService) { }
 
   sendMessage() {
     this.messageEvent.emit(this.evtMessage);
   }
 
   ngOnInit() {
+    this.data.sharedMessage.subscribe(sharedData => this.sharedMessage = sharedData )
   }
 
 }

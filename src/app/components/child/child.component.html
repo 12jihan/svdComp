@@ -3,4 +3,9 @@
 
   <p class="is-size-6 subtitle">{{ sentence }}</p>
   <a (click)="sendMessage()" class="button is-danger">Click Here</a>
+  <div *ngIf="sharedMessage">
+    <p class="is-size-4 subtitle" style="margin-top: 25px;">Data From Shared Service: </p>
+    <p class="is-size-5">{{ sharedMessage }}</p>
+  </div>
+
 </div>

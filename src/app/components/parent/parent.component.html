@@ -8,4 +8,9 @@
     </div>
 
     <app-child [sentence]="sentence" (messageEvent)="receiveMessage($event)"></app-child>
+
+    <div *ngIf="sharedMessage">
+        <p class="is-size-4 subtitle" style="margin-top: 25px;">Data From Shared Service: </p>
+        <p class="is-size-5">{{ sharedMessage }}</p>
+    </div>
 </div>

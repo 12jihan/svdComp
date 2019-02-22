@@ -1,4 +1,10 @@
-<div class="box">
-    <h1>Sibling Component</h1>
-    <p>This is a test</p>
+<div class="box has-background-primary">
+
+    <h1 class="is-size-3">Sibling Component</h1>
+    
+    <div *ngIf="sharedMessage">
+        <p class="is-size-4 subtitle" style="margin-top: 25px;">Data From Shared Service: </p>
+        <p class="is-size-5">{{ sharedMessage }}</p>
+    </div>
+
 </div>
